@@ -40,7 +40,7 @@ export function useLogin() {
         onSuccess: (res) => {
             setUser(res.data.user);
             queryClient.setQueryData(queryKeys.me, res.data.user);
-            router.push("/laporan/saya");
+            router.push("/report");
             showSuccess("Login berhasil!");
         },
     });

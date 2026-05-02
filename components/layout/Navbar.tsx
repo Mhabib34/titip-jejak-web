@@ -127,9 +127,6 @@ export function Navbar() {
             <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500">
-                        <MapPin size={16} className="text-white" strokeWidth={2.5} />
-                    </span>
                     <span className="text-lg font-bold tracking-tight text-stone-900">
                         Temu<span className="text-orange-500">Kan</span>
                     </span>

@@ -1,4 +1,5 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
+import { useAuthStore } from "@/store/authStore";
 
 // ─── Instance ─────────────────────────────────────────────────────────────────
 
@@ -12,8 +13,6 @@ export const api = axios.create({
 });
 
 // ─── Request Interceptor ──────────────────────────────────────────────────────
-// Tidak perlu inject token manual — cookie dikirim otomatis via withCredentials.
-// Interceptor ini hanya untuk logging di dev.
 
 api.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
@@ -27,7 +26,9 @@ api.interceptors.request.use(
 
 // ─── Response Interceptor ─────────────────────────────────────────────────────
 // Tangani 401 → coba refresh token sekali, lalu retry request asli.
-// Kalau refresh juga gagal → redirect ke /login.
+// Kalau refresh juga gagal → clear auth store saja, JANGAN redirect global.
+// Redirect ke /login hanya dilakukan oleh middleware untuk protected routes,
+// atau oleh komponen/hook yang memang butuh auth.
 
 let isRefreshing = false;
 let failedQueue: Array<{
@@ -54,12 +55,10 @@ api.interceptors.response.use(
         const isRefreshEndpoint = originalRequest.url?.includes("/auth/refresh");
         const alreadyRetried = originalRequest._retry;
 
-        // Jangan retry kalau request-nya sudah /auth/refresh atau sudah pernah retry
         if (!is401 || isRefreshEndpoint || alreadyRetried) {
             return Promise.reject(error);
         }
 
-        // Kalau sedang refresh, antrekan request yang gagal
         if (isRefreshing) {
             return new Promise((resolve, reject) => {
                 failedQueue.push({ resolve, reject });
@@ -72,16 +71,17 @@ api.interceptors.response.use(
         isRefreshing = true;
 
         try {
-            // Untuk web, body kosong — server baca refresh_token dari cookie
             await api.post("/auth/refresh");
             processQueue(null);
             return api(originalRequest);
         } catch (refreshError) {
             processQueue(refreshError as AxiosError);
 
-            // Refresh gagal → paksa logout & redirect ke halaman masuk
+            // Refresh gagal → clear auth store saja.
+            // Middleware akan redirect ke /login jika user mencoba akses protected route.
+            // Halaman publik (home, laporan, dll) tetap bisa diakses tanpa login.
             if (typeof window !== "undefined") {
-                window.location.href = "/login";
+                useAuthStore.getState().clearUser();
             }
 
             return Promise.reject(refreshError);

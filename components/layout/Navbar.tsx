@@ -71,7 +71,7 @@ function UserDropdown() {
 
                     <div className="p-1.5">
                         <Link
-                            href="/profil"
+                            href="/profile"
                             onClick={() => setOpen(false)}
                             className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-stone-600 transition-colors hover:bg-stone-50"
                         >

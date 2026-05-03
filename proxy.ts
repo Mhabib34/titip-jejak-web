@@ -9,7 +9,7 @@ const PROTECTED_ROUTES = [
     "/report/me",
     "/notification",
     "/match",
-    "/profil",
+    "/profile",
 ];
 
 // Route dengan pattern dinamis yang protected

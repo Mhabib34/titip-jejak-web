@@ -43,6 +43,8 @@ export function proxy(request: NextRequest) {
     const accessToken = request.cookies.get("access_token")?.value;
     const isLoggedIn = Boolean(accessToken);
 
+    console.log({ pathname, isLoggedIn, accessToken });
+
     // 1. User belum login → akses protected route → redirect ke /login
     if (!isLoggedIn && isProtectedRoute(pathname)) {
         const loginUrl = new URL("/login", request.url);

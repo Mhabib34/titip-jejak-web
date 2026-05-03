@@ -13,7 +13,7 @@ import { useState, useRef, useEffect } from "react";
 const NAV_LINKS = [
     { label: "Beranda", href: "/" },
     { label: "Laporan", href: "/report" },
-    { label: "Peta", href: "/peta" },
+    { label: "Peta", href: "/map" },
     { label: "Match", href: "/match", protected: true },
 ];
 

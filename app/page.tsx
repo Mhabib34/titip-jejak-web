@@ -312,7 +312,7 @@ export default function HomePage() {
                             Buat Laporan Sekarang
                         </Link>
                         <Link
-                            href="/peta"
+                            href="/map"
                             className="rounded-2xl border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10 active:scale-95"
                         >
                             Lihat Peta

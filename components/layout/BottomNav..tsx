@@ -42,7 +42,7 @@ const TABS: Tab[] = [
     },
     {
         label: "Profil",
-        href: "/profil",
+        href: "/profile",
         icon: <User size={22} strokeWidth={1.8} />,
         protected: true,
     },

@@ -18,7 +18,7 @@ const PROTECTED_DYNAMIC_PATTERNS = [
 ];
 
 // Route yang hanya boleh diakses saat BELUM login (redirect jika sudah login)
-const AUTH_ROUTES = ["/login", "/register"];
+// const AUTH_ROUTES = ["/login", "/register"];
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
 
@@ -29,9 +29,9 @@ function isProtectedRoute(pathname: string): boolean {
   return PROTECTED_DYNAMIC_PATTERNS.some((pattern) => pattern.test(pathname));
 }
 
-function isAuthRoute(pathname: string): boolean {
-  return AUTH_ROUTES.some((route) => pathname.startsWith(route));
-}
+// function isAuthRoute(pathname: string): boolean {
+//   return AUTH_ROUTES.some((route) => pathname.startsWith(route));
+// }
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 

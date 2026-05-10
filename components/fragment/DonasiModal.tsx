@@ -104,25 +104,25 @@ export function DonasiModal({ isOpen, onClose }: DonasiModalProps) {
               <div className="border-t border-stone-100" />
 
               {/* 2 tombol */}
-              <div className="flex flex-col gap-2">
+              <div className="flex gap-2 w-full">
                 <a
                   href="https://trakteer.id/hbibdev/tip"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-11 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
+                  className="h-11 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 w-full"
                 >
                   <Heart className="w-4 h-4" />
-                  Trakteer — Mie Ayam Rp 20.000
+                  Trakteer
                 </a>
 
                 <a
                   href="https://saweria.co/hbibdev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-11 rounded-xl bg-white border-2 border-orange-200 hover:border-orange-400 text-orange-500 font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
+                  className="h-11 rounded-xl bg-white border-2 border-orange-200 hover:border-orange-400 text-orange-500 font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 w-full"
                 >
                   <DollarSign className="w-4 h-4" />
-                  Saweria — Nominal Bebas
+                  Saweria
                 </a>
               </div>
             </div>

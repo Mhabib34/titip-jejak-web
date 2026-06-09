@@ -161,7 +161,7 @@ export default function ReportPage() {
 
           {/* Content */}
           {isLoading ? (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {Array.from({ length: 12 }).map((_, i) => (
                 <ReportCardSkeleton key={i} />
               ))}
@@ -200,7 +200,7 @@ export default function ReportPage() {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {reports.map((r) => (
                   <ReportCard key={r.id} laporan={r} />
                 ))}

@@ -16,8 +16,8 @@ export function CtaBottom() {
 
   return (
     <>
-      <div className="px-4 pb-10">
-        <div className="max-w-6xl mx-auto">
+      <div className="md:px-10 px-4 pb-10">
+        <div className="mx-auto">
           <motion.div
             className="bg-orange-500 rounded-3xl px-8 py-12 text-center relative overflow-hidden"
             variants={fadeUp}

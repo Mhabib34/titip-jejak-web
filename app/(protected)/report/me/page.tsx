@@ -100,8 +100,8 @@ export default function ReportMePage() {
 
       {/* ── Loading ── */}
       {isLoading && (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {Array.from({ length: 8 }).map((_, i) => (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          {Array.from({ length: 12 }).map((_, i) => (
             <ReportCardSkeleton key={i} />
           ))}
         </div>
@@ -155,7 +155,7 @@ export default function ReportMePage() {
       {/* ── Grid laporan ── */}
       {!isLoading && !isError && reports.length > 0 && (
         <>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
             {reports.map((laporan) => (
               <ReportActionCard key={laporan.id} laporan={laporan} />
             ))}

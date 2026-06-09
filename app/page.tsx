@@ -21,7 +21,7 @@ import {
 
 export default function HomePage() {
   const { data: stats, isLoading: statsLoading } = useStats();
-  const { data, isLoading } = useLaporanList({ limit: 3, status: "active" });
+  const { data, isLoading } = useLaporanList({ limit: 4, status: "active" });
 
   const fmt = (val?: number) =>
     statsLoading ? "..." : (val?.toLocaleString("id-ID") ?? "-");
@@ -73,7 +73,7 @@ export default function HomePage() {
       </div>
 
       {/* ══ DESKTOP HERO ══ */}
-      <div className="hidden md:block md:px-10 bg-white py-16 relative overflow-hidden">
+      <div className="hidden md:block md:px-10 py-16 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
           style={{
@@ -83,18 +83,18 @@ export default function HomePage() {
           }}
         />
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 gap-16 items-center">
+        <div className="mx-auto grid grid-cols-2 gap-16 items-center">
           {/* Left: text */}
           <motion.div initial="hidden" animate="show">
             <motion.p
-              className="text-orange-500 text-xs font-bold tracking-widest uppercase mb-4"
+              className="text-orange-500 text-sm font-bold tracking-widest uppercase mb-4"
               variants={fadeLeft}
               custom={0}
             >
               Platform Komunitas Indonesia
             </motion.p>
             <motion.h1
-              className="text-5xl font-extrabold text-stone-900 leading-tight tracking-tight mb-5"
+              className="text-5xl lg:text-6xl font-extrabold text-stone-900 leading-[1.15] tracking-tight mb-6"
               variants={fadeLeft}
               custom={0.1}
             >
@@ -103,7 +103,7 @@ export default function HomePage() {
               <span className="text-orange-500">Orang Tersayang.</span>
             </motion.h1>
             <motion.p
-              className="text-stone-500 text-base leading-relaxed mb-8 max-w-md"
+              className="text-stone-500 text-lg leading-relaxed mb-8 max-w-lg"
               variants={fadeLeft}
               custom={0.2}
             >
@@ -118,28 +118,28 @@ export default function HomePage() {
             >
               <Link
                 href="/report/new"
-                className="h-11 px-6 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm flex items-center gap-2 shadow-md shadow-orange-200 transition-colors active:scale-95 cursor-pointer"
+                className="h-12 px-8 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-base flex items-center gap-2 shadow-md shadow-orange-200 transition-colors active:scale-95 cursor-pointer"
               >
                 Buat Laporan Baru
-                <Plus className="w-4 h-4" />
+                <Plus className="w-5 h-5" />
               </Link>
             </motion.div>
           </motion.div>
 
           {/* Right: image collage */}
-          <div className="relative h-100">
+          <div className="relative h-[480px]">
             {/* Main oval — LCP */}
             <motion.div
-              className="absolute left-8 top-4 w-56 h-72 rounded-[40%] overflow-hidden shadow-xl shadow-stone-200 border-4 border-white"
+              className="absolute left-4 top-8 w-[320px] h-[380px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white z-10"
               variants={fadeScale}
               initial="hidden"
               animate="show"
               custom={0.15}
             >
               <motion.div
-                animate={{ y: [0, -8, 0] }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -152,14 +152,14 @@ export default function HomePage() {
                   priority
                   loading="eager"
                   className="object-cover"
-                  sizes="224px"
+                  sizes="320px"
                 />
               </motion.div>
             </motion.div>
 
             {/* Top right */}
             <motion.div
-              className="absolute right-4 top-0 w-40 h-32 rounded-3xl overflow-hidden shadow-lg border-4 border-white"
+              className="absolute right-8 top-0 w-[240px] h-[190px] rounded-[2rem] overflow-hidden shadow-xl border-4 border-white z-0"
               variants={fadeRight}
               initial="hidden"
               animate="show"
@@ -170,13 +170,13 @@ export default function HomePage() {
                 alt="Pulang ke rumah"
                 fill
                 className="object-cover"
-                sizes="160px"
+                sizes="240px"
               />
             </motion.div>
 
             {/* Bottom right */}
             <motion.div
-              className="absolute right-2 bottom-10 w-44 h-36 rounded-3xl overflow-hidden shadow-lg border-4 border-white"
+              className="absolute right-0 bottom-4 w-[280px] h-[220px] rounded-[2rem] overflow-hidden shadow-xl border-4 border-white z-20"
               variants={fadeRight}
               initial="hidden"
               animate="show"
@@ -187,7 +187,7 @@ export default function HomePage() {
                 alt="Relawan komunitas"
                 fill
                 className="object-cover object-top"
-                sizes="176px"
+                sizes="280px"
               />
             </motion.div>
           </div>
@@ -195,9 +195,9 @@ export default function HomePage() {
       </div>
 
       {/* ══ STATS ══ */}
-      <div className="px-4 py-6 bg-white">
+      <div className="md:px-10 px-4 py-6 bg-white">
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3"
+          className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"

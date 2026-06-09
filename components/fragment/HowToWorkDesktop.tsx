@@ -1,17 +1,17 @@
 import Link from "next/link";
-import {ReportCard, ReportCardSkeleton} from "@/components/card/ReportCard";
-import {StepCard} from "@/components/card/StepCard";
-import {Report} from "@/types";
+import { ReportCard, ReportCardSkeleton } from "@/components/card/ReportCard";
+import { StepCard } from "@/components/card/StepCard";
+import { Report } from "@/types";
 
 type Props = {
     isLoading: boolean;
     laporanTerbaru: Report[]
 }
 
-export function HowToWorkDesktop({isLoading, laporanTerbaru}: Props) {
+export function HowToWorkDesktop({ isLoading, laporanTerbaru }: Props) {
     return (
-        <div className="px-4 py-8">
-            <div className="max-w-6xl mx-auto md:grid md:grid-cols-[1fr_300px] md:gap-8">
+        <div className="px-4 md:px-10 py-8">
+            <div className=" mx-auto md:grid md:grid-cols-[1fr_300px] md:gap-8">
 
                 {/* Laporan Terbaru */}
                 <div>
@@ -21,7 +21,7 @@ export function HowToWorkDesktop({isLoading, laporanTerbaru}: Props) {
                             <p className="text-xs text-stone-500 mt-0.5">Membantu proses pencarian di sekitar Anda</p>
                         </div>
                         <Link href="/report"
-                              className="flex items-center gap-1 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors mt-1">
+                            className="flex items-center gap-1 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors mt-1">
                             Lihat Semua
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -43,11 +43,11 @@ export function HowToWorkDesktop({isLoading, laporanTerbaru}: Props) {
                     </div>
 
                     {/* Desktop: grid */}
-                    <div className="hidden md:grid md:grid-cols-3 gap-4">
+                    <div className="hidden md:grid md:grid-cols-4 gap-4">
                         {isLoading ? (
-                            [1, 2, 3].map(i => <ReportCardSkeleton key={i} />)
+                            [1, 2, 3, 4].map(i => <ReportCardSkeleton key={i} />)
                         ) : laporanTerbaru.length === 0 ? (
-                            <div className="col-span-3 rounded-2xl border border-stone-100 bg-white p-10 text-center">
+                            <div className="col-span-4 rounded-2xl border border-stone-100 bg-white p-10 text-center">
                                 <p className="text-stone-400 text-sm">Belum ada laporan aktif.</p>
                             </div>
                         ) : (
@@ -62,13 +62,13 @@ export function HowToWorkDesktop({isLoading, laporanTerbaru}: Props) {
                         <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-5">Cara Kerja Kami</p>
                         <div className="space-y-0">
                             <StepCard step={1} title="Laporkan Kehilangan"
-                                      desc="Isi formulir detail dengan foto terbaru dan lokasi terakhir orang yang dicari." />
+                                desc="Isi formulir detail dengan foto terbaru dan lokasi terakhir orang yang dicari." />
                             <StepCard step={2} title="Verifikasi Kilat"
-                                      desc="Tim admin kami memverifikasi laporan untuk memastikan data akurat sebelum disebarkan." />
+                                desc="Tim admin kami memverifikasi laporan untuk memastikan data akurat sebelum disebarkan." />
                             <StepCard step={3} title="Penyebaran Luas"
-                                      desc="Notifikasi dikirim ke ribuan relawan di radius area kehilangan secara real-time." />
+                                desc="Notifikasi dikirim ke ribuan relawan di radius area kehilangan secara real-time." />
                             <StepCard step={4} title="Update & Reuni" isLast
-                                      desc="Terima info dari saksi mata langsung di peta untuk mempermudah penemuan." />
+                                desc="Terima info dari saksi mata langsung di peta untuk mempermudah penemuan." />
                         </div>
                         {/* Security note */}
                         <div className="mt-4 p-3 bg-stone-50 rounded-xl flex gap-2.5">

@@ -19,13 +19,13 @@ export function Footer() {
   return (
     <motion.footer
       id="footer"
-      className="border-t border-stone-200 bg-white px-4 py-5"
+      className="border-t border-stone-200 bg-white md:px-10 px-4 py-5"
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={viewportOnceTight}
     >
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <motion.p
           className="text-xs text-stone-400"
           variants={staggerItemFadeOnly}

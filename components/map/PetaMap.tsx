@@ -156,7 +156,7 @@ export default function PetaMap() {
   const CENTER: [number, number] = [-2.5, 118.0];
 
   return (
-    <div className="relative w-full h-screen flex flex-col">
+    <div className="relative w-full h-[calc(100vh-128px)] md:h-[calc(100vh-56px)] flex flex-col">
       {/* ── Top bar ── */}
       <div className="absolute top-0 left-0 right-0 z-1000 pointer-events-none">
         <div className="max-w-6xl mx-auto px-4 pt-4 flex items-start justify-between gap-3">

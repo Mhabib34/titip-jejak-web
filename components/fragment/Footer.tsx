@@ -27,7 +27,7 @@ export function Footer() {
     >
       <div className="mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <motion.p
-          className="text-xs text-stone-400"
+          className="md:text-lg text-xs text-stone-400"
           variants={staggerItemFadeOnly}
         >
           &copy;{currentYear} Titip Jejak Indonesia. Bersama Memulangkan yang
@@ -38,7 +38,7 @@ export function Footer() {
             <motion.div key={item.href} variants={staggerItemFadeOnly}>
               <Link
                 href={item.href}
-                className="text-xs text-stone-400 hover:text-stone-600 transition-colors"
+                className="md:text-lg text-xs text-stone-400 hover:text-stone-600 transition-colors"
               >
                 {item.label}
               </Link>

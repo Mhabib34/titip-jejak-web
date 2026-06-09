@@ -87,14 +87,14 @@ export default function HomePage() {
           {/* Left: text */}
           <motion.div initial="hidden" animate="show">
             <motion.p
-              className="text-orange-500 text-sm font-bold tracking-widest uppercase mb-4"
+              className="text-orange-500 text-md font-bold tracking-widest uppercase mb-4"
               variants={fadeLeft}
               custom={0}
             >
               Platform Komunitas Indonesia
             </motion.p>
             <motion.h1
-              className="text-5xl lg:text-6xl font-extrabold text-stone-900 leading-[1.15] tracking-tight mb-6"
+              className="text-5xl lg:text-7xl font-extrabold text-stone-900 leading-[1.15] tracking-tight mb-6"
               variants={fadeLeft}
               custom={0.1}
             >
@@ -103,7 +103,7 @@ export default function HomePage() {
               <span className="text-orange-500">Orang Tersayang.</span>
             </motion.h1>
             <motion.p
-              className="text-stone-500 text-lg leading-relaxed mb-8 max-w-lg"
+              className="text-stone-500 text-xl leading-relaxed mb-8 max-w-lg"
               variants={fadeLeft}
               custom={0.2}
             >
